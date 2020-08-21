@@ -1,0 +1,48 @@
+{
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build"
+  },
+  "peerDependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "s",
+  "author": "Jesse Hoyos",
+  "module": "dist/s.esm.js",
+  "devDependencies": {
+    "@types/sade": "^1.7.2",
+    "@types/shelljs": "^0.8.8",
+    "husky": "^4.2.5",
+    "shelljs": "^0.8.4",
+    "tsdx": "^0.13.2",
+    "tslib": "^2.0.1",
+    "typescript": "^4.0.2"
+  },
+  "dependencies": {
+    "esbuild": "^0.6.27",
+    "sade": "^1.7.3"
+  }
+}
