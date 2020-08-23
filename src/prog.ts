@@ -3,7 +3,7 @@ import sade from 'sade';
 const prog = sade('spike');
 
 export default (handler: (type: string) => void) => {
-  const cmd = (type: string) => (opts: any) => {
+  const cmd = (type: string) => (opts: { watch: boolean }) => {
     opts.watch = type === 'watch';
     handler(type);
   };
@@ -21,9 +21,13 @@ export default (handler: (type: string) => void) => {
     .describe('Cleans out the build directory')
     .action(cmd('clean'));
   prog
+    .command('pack')
+    .describe('Prepare node modules for the browser')
+    .action(cmd('pack'));
+  prog
     .command('eject')
     .describe('Vaya con Dios, amigo')
     .action(cmd('eject'));
 
-  return (argv: string) => prog.parse(argv);
+  return (argv: string[]) => prog.parse(argv);
 };

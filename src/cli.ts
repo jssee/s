@@ -6,9 +6,9 @@ const run = (cmd: string) => {
   spike(cmd)
     .then((output: any) => {
       if (output != null) console.info(cmd);
-      if (cmd !== 'watch') process.exit(0);
+      if (!cmd.includes('watch')) process.exit(0);
     })
-    .catch((error: Error) => {
+    .catch((error: any) => {
       process.exitCode = (typeof error.code === 'number' && error.code) || 1;
       console.error(error);
       process.exit();
